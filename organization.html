@@ -1,0 +1,1154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Organization | E.D. Lim Medical Center</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary-green: rgba(120, 170, 90, 0.92);
+        --primary-blue: #0b6fa4;
+        --accent-lime: #bfd33e;
+        --deep-blue: #2f5f9d;
+        --dark-text: #1f2937;
+        --muted-text: #6b7280;
+        --light-bg: #f7fbff;
+        --white: #ffffff;
+        --shadow: 0 15px 40px rgba(11, 111, 164, 0.12);
+        --radius-xl: 24px;
+        --radius-lg: 18px;
+        --radius-md: 14px;
+        --transition: all 0.35s ease;
+        --card-bg: rgba(255, 255, 255, 0.88);
+        --border: rgba(15, 92, 156, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        color: var(--dark-text);
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(191, 211, 62, 0.14),
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at top right,
+            rgba(11, 111, 164, 0.12),
+            transparent 30%
+          ),
+          linear-gradient(180deg, #f7fbff 0%, #ecf5fd 100%);
+      }
+
+      .navbar {
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        padding: 14px 0;
+        display: flex;
+        align-items: center;
+      }
+
+      .navbar-brand {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: var(--deep-blue) !important;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .header-logo {
+        height: 58px;
+        width: auto;
+        object-fit: contain;
+      }
+
+      .nav-link {
+        font-weight: 600;
+        color: var(--dark-text) !important;
+        position: relative;
+        margin: 0 4px;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        bottom: 2px;
+        height: 3px;
+        border-radius: 99px;
+        background: linear-gradient(
+          90deg,
+          var(--accent-lime),
+          var(--primary-blue)
+        );
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: var(--transition);
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        transform: scaleX(1);
+      }
+
+      .dropdown-menu {
+        border: none;
+        border-radius: 18px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        padding: 12px;
+      }
+
+      .dropdown-item {
+        border-radius: 12px;
+        padding: 10px 14px;
+        font-weight: 500;
+      }
+
+      .dropdown-item:hover {
+        background: rgba(11, 111, 164, 0.08);
+        color: var(--primary-blue);
+      }
+
+      .btn-primary-custom {
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue),
+          var(--deep-blue)
+        );
+        color: #fff;
+        border: none;
+        box-shadow: 0 12px 24px rgba(11, 111, 164, 0.28);
+        padding: 14px 22px;
+        font-weight: 600;
+        border-radius: 14px;
+      }
+
+      .btn-primary-custom:hover {
+        color: #fff;
+        transform: translateY(-2px);
+      }
+
+      .footer {
+        background: #0d2d4c;
+        color: rgba(255, 255, 255, 0.82);
+        padding-top: 80px;
+      }
+
+      .footer-logo-wrap {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+
+      .footer-logo {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--accent-lime),
+          var(--primary-green)
+        );
+        color: #fff;
+        display: grid;
+        place-items: center;
+        font-size: 1.6rem;
+        box-shadow: 0 10px 24px rgba(191, 211, 62, 0.2);
+      }
+
+      .footer h5 {
+        color: #fff;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .footer a {
+        color: rgba(255, 255, 255, 0.82);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .footer a:hover {
+        color: var(--accent-lime);
+        padding-left: 4px;
+      }
+
+      .footer-links,
+      .footer-contact,
+      .footer-social {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-links li,
+      .footer-contact li,
+      .footer-social li {
+        margin-bottom: 12px;
+      }
+
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        margin-top: 36px;
+        padding: 22px 0;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.68);
+      }
+
+      .org-hero {
+        text-align: center;
+        padding: 130px 20px 35px;
+      }
+
+      .org-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(191, 211, 62, 0.16);
+        color: var(--deep-blue);
+        border: 1px solid rgba(191, 211, 62, 0.5);
+        border-radius: 999px;
+        padding: 10px 16px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 16px;
+      }
+
+      .org-hero h1 {
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        font-weight: 800;
+        color: var(--deep-blue);
+        margin-bottom: 12px;
+      }
+
+      .org-hero p {
+        max-width: 760px;
+        margin: 0 auto;
+        color: var(--muted-text);
+        line-height: 1.8;
+      }
+
+      .organization-wrap {
+        width: min(1300px, 94%);
+        margin: auto;
+        padding-bottom: 80px;
+      }
+
+      .top-leader {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 35px;
+      }
+
+      .person-card {
+        background: var(--card-bg);
+        backdrop-filter: blur(14px);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+        padding: 18px;
+        text-align: center;
+        transition: 0.35s ease;
+      }
+
+      .person-card:hover,
+      .department-box:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 18px 40px rgba(15, 92, 156, 0.18);
+      }
+
+      .leader-card {
+        width: 270px;
+        background: linear-gradient(135deg, #0f5c9c, #1978c4);
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .leader-card::before {
+        content: "";
+        position: absolute;
+        inset: auto -50px -50px auto;
+        width: 130px;
+        height: 130px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 50%;
+      }
+
+      .person-photo {
+        width: 85px;
+        height: 85px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 12px;
+        border: 4px solid rgba(255, 255, 255, 0.7);
+        background: #dbefff;
+      }
+
+      .leader-card .role-tag {
+        background: rgba(255, 255, 255, 0.16);
+        color: #fff;
+      }
+
+      .role-tag {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        background: rgba(15, 92, 156, 0.08);
+        color: var(--primary-blue);
+        margin-bottom: 10px;
+      }
+
+      .person-name {
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+
+      .person-sub {
+        font-size: 0.85rem;
+        color: var(--muted-text);
+        margin: 0;
+      }
+
+      .leader-card .person-sub,
+      .leader-card .person-name {
+        color: #fff;
+      }
+
+      .main-departments {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        align-items: start;
+      }
+
+      .department-box {
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        border-radius: 30px;
+        box-shadow: 0 15px 38px rgba(15, 92, 156, 0.1);
+        padding: 20px;
+        backdrop-filter: blur(12px);
+        transition: 0.35s ease;
+      }
+
+      .department-title {
+        text-align: center;
+        background: linear-gradient(135deg, #0f5c9c, #1978c4);
+        color: #fff;
+        border-radius: 20px;
+        padding: 14px 18px;
+        margin-bottom: 18px;
+        box-shadow: 0 10px 25px rgba(15, 92, 156, 0.18);
+      }
+
+      .department-title h2 {
+        font-size: 1.05rem;
+        font-weight: 800;
+        margin: 0;
+        letter-spacing: 0.5px;
+      }
+
+      .section-head {
+        margin: 18px 0 10px;
+        padding: 10px 14px;
+        border-left: 5px solid var(--primary-green);
+        background: rgba(120, 170, 90, 0.08);
+        border-radius: 12px;
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: var(--dark-text);
+      }
+
+      .staff-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .staff-grid.single-col {
+        grid-template-columns: 1fr;
+      }
+
+      .staff-card {
+        min-height: 150px;
+      }
+
+      .staff-card .person-photo {
+        width: 68px;
+        height: 68px;
+        border: 3px solid #e3f1ff;
+      }
+
+      .staff-card .person-name {
+        font-size: 0.96rem;
+      }
+
+      .staff-card .person-sub {
+        font-size: 0.8rem;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: 0.7s ease;
+      }
+
+      .reveal.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 1100px) {
+        .main-departments {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 991.98px) {
+        .org-hero {
+          padding-top: 120px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .staff-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .organization-wrap {
+          width: min(95%, 95%);
+        }
+
+        .leader-card {
+          width: 100%;
+          max-width: 320px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html#home">
+          <img
+            src="EDLIM LOGO.png"
+            alt="E.D. Lim Medical Center Logo"
+            class="header-logo"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#home">Home</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="index.html#services"
+                role="button"
+                data-bs-toggle="dropdown"
+                >Services</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="index.html#services"
+                    >Pediatric</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="index.html#services"
+                    >Colonoscopy</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="index.html#services"
+                    >Radiology</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="index.html#services"
+                    >Surgery</a
+                  >
+                </li>
+                <li></li>
+                <li>
+                  <a class="dropdown-item" href="index.html#services"
+                    >Pharmacy</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="index.html#services"
+                    >Eye Care Center</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="index.html#services"
+                    >Emergency Room (ER)</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="index.html#services"
+                    >Operating Room (OR)</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="index.html#services">OPD</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#about">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#facilities">Facilities</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="organization.html"
+                >Organization</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#faqs">FAQs</a>
+            </li>
+            <li class="nav-item ms-lg-2 mt-3 mt-lg-0">
+              <a class="btn btn-primary-custom" href="index.html#contact"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="org-hero">
+      <span class="org-badge"
+        ><i class="bi bi-diagram-3"></i> E.D. Lim Medical Center</span
+      >
+      <h1>Organizational Structure</h1>
+      <p>
+        A clear and organized presentation of the leadership, departments, and
+        staff members of <br />E.D. Lim Medical Center.
+      </p>
+    </section>
+
+    <div class="organization-wrap">
+      <div class="top-leader reveal">
+        <div class="person-card leader-card">
+          <img
+            src="medical-director.jpg"
+            alt="Medical Director"
+            class="person-photo"
+          />
+          <div class="role-tag">Medical Director</div>
+          <div class="person-name">Dr. Evelyn Lim, MD</div>
+        </div>
+      </div>
+
+      <div class="main-departments">
+        <div class="department-box reveal">
+          <div class="department-title">
+            <h2>Medical Services</h2>
+          </div>
+
+          <div class="section-head">Medical Specialists</div>
+          <div class="staff-grid">
+            <div class="person-card staff-card">
+              <img src="obgyne.png" alt="" class="person-photo" />
+              <div class="role-tag">OB-Gyne</div>
+              <div class="person-name">Ricardo O. Magpoc, MD, FPOGS</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="internal-medicine.png" alt="" class="person-photo" />
+              <div class="role-tag">Internal Medicine</div>
+              <div class="person-name">Maria Rica C. Quiñones, MD, FPCP</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="pediatrics.png" alt="" class="person-photo" />
+              <div class="role-tag">Pediatrics</div>
+              <div class="person-name">Norma M. Dagdag, MD, FPPS</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="surgery.png" alt="" class="person-photo" />
+              <div class="role-tag">Surgery</div>
+              <div class="person-name">
+                Benjamin P. Inoturan, MD, DPCS, FPCS
+              </div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="anesthesiology.png" alt="" class="person-photo" />
+              <div class="role-tag">Anesthesiology</div>
+              <div class="person-name">Richard Vincent C. Guevarra, MD</div>
+            </div>
+          </div>
+
+          <div class="section-head">Ancillary - Laboratory</div>
+          <div class="staff-grid">
+            <div class="person-card staff-card">
+              <img src="chief-medtech.png" alt="" class="person-photo" />
+              <div class="role-tag">Chief Medical Technologist</div>
+              <div class="person-name">Margarette Ann E. Dela Cruz, RMT</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="medtech1.png" alt="" class="person-photo" />
+              <div class="role-tag">Medical Technologist</div>
+              <div class="person-name">Mary Joy C. Pastores, RMT</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="medtech2.png" alt="" class="person-photo" />
+              <div class="role-tag">Medical Technologist</div>
+              <div class="person-name">Hansi S. Dimayuga, RMT</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="medtech3.png" alt="" class="person-photo" />
+              <div class="role-tag">Medical Technologist</div>
+              <div class="person-name">Jolina F. Eslabon, RMT</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="medtech4.png" alt="" class="person-photo" />
+              <div class="role-tag">Medical Technologist</div>
+              <div class="person-name">Justin A. Liu, RMT</div>
+            </div>
+          </div>
+
+          <div class="section-head">Ancillary - Pharmacy</div>
+          <div class="staff-grid">
+            <div class="person-card staff-card">
+              <img src="chief-pharmacist.png" alt="" class="person-photo" />
+              <div class="role-tag">Chief Pharmacist</div>
+              <div class="person-name">Lorna G. Sarmiento, RPH</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="pharmacist1.png" alt="" class="person-photo" />
+              <div class="role-tag">Pharmacist</div>
+              <div class="person-name">Ma. Bianca Joyce D. Miranda, RPH</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="pharmacist2.png" alt="" class="person-photo" />
+              <div class="role-tag">Pharmacist</div>
+              <div class="person-name">Melanie B. Yuson, RPH</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="pharmacist3.png" alt="" class="person-photo" />
+              <div class="role-tag">Pharmacist</div>
+              <div class="person-name">Eufemia L. Ramirez</div>
+            </div>
+          </div>
+
+          <div class="section-head">Ancillary - Radiology</div>
+          <div class="staff-grid">
+            <div class="person-card staff-card">
+              <img src="chief-xray.png" alt="" class="person-photo" />
+              <div class="role-tag">Chief X-Ray Technologist</div>
+              <div class="person-name">Lovely B. Bernardino, RXT</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="xray1.png" alt="" class="person-photo" />
+              <div class="role-tag">X-Ray Technologist</div>
+              <div class="person-name">Minerva N. Soliman, RXT</div>
+            </div>
+          </div>
+          <div class="section-head">Medical Residents</div>
+          <div class="staff-grid">
+            <div class="person-card staff-card">
+              <img src="resident1.png" alt="" class="person-photo" />
+              <div class="person-name">Ma. Lourdes M. Valiente, MD</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="resident2.png" alt="" class="person-photo" />
+              <div class="person-name">
+                Faye Antonette E. Maramag Lim, MD, DPCS
+              </div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="resident3.png" alt="" class="person-photo" />
+              <div class="person-name">Faith Russell B. Reyes, MD</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="resident4.png" alt="" class="person-photo" />
+              <div class="person-name">Juan Lorenzo L. Requiron, MD</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="resident5.png" alt="" class="person-photo" />
+              <div class="person-name">Melanie C. Navarro, MD</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="department-box reveal">
+          <div class="department-title">
+            <h2>Nursing Services</h2>
+          </div>
+
+          <div class="section-head">Nursing Leadership</div>
+          <div class="staff-grid single-col">
+            <div class="person-card staff-card">
+              <img src="chief-nurse.png" alt="" class="person-photo" />
+              <div class="role-tag">Chief Nurse</div>
+              <div class="person-name">Almabella M. Dumon, RN, MAN</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="head-nurse.png" alt="" class="person-photo" />
+              <div class="role-tag">Head Nurse</div>
+              <div class="person-name">Melisalyn DJ. Escoto, RN</div>
+            </div>
+          </div>
+
+          <div class="section-head">Staff Nurses</div>
+          <div class="staff-grid">
+            <div class="person-card staff-card">
+              <img src="staff-nurse1.png" alt="" class="person-photo" />
+              <div class="role-tag">Staff Nurse</div>
+              <div class="person-name">Gilbert J. Cacayuran, RN</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="staff-nurse2.png" alt="" class="person-photo" />
+              <div class="role-tag">Staff Nurse</div>
+              <div class="person-name">J-Anne D. Bautista, RN</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="staff-nurse3.png" alt="" class="person-photo" />
+              <div class="role-tag">Staff Nurse</div>
+              <div class="person-name">Princess Alyssa T. Torres, RN</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="staff-nurse4.png" alt="" class="person-photo" />
+              <div class="role-tag">Staff Nurse</div>
+              <div class="person-name">Khaila B. Gamboa, RN</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="staff-nurse5.png" alt="" class="person-photo" />
+              <div class="role-tag">Staff Nurse</div>
+              <div class="person-name">John John M. Bautista, RN</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="staff-nurse6.png" alt="" class="person-photo" />
+              <div class="role-tag">Staff Nurse</div>
+              <div class="person-name">Catherine Joy B. Gigantoca, RN</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="staff-nurse7.png" alt="" class="person-photo" />
+              <div class="role-tag">Staff Nurse</div>
+              <div class="person-name">Allan M. Manaloto, RN</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="staff-nurse8.png" alt="" class="person-photo" />
+              <div class="role-tag">Staff Nurse</div>
+              <div class="person-name">Rosario Bernadeth D. Lopez, RN</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="staff-nurse9.png" alt="" class="person-photo" />
+              <div class="role-tag">Staff Nurse</div>
+              <div class="person-name">Leo M. Santiago, RN</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="staff-nurse10.png" alt="" class="person-photo" />
+              <div class="role-tag">Staff Nurse</div>
+              <div class="person-name">Neil Bryant L. Sangilan, RN</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="staff-nurse11.png" alt="" class="person-photo" />
+              <div class="role-tag">Staff Nurse</div>
+              <div class="person-name">Stanley T. Teofisto, RN</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="staff-nurse12.png" alt="" class="person-photo" />
+              <div class="role-tag">Staff Nurse</div>
+              <div class="person-name">Ma. Angelica F. Corpuz, RN</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="staff-nurse13.png" alt="" class="person-photo" />
+              <div class="role-tag">Staff Nurse</div>
+              <div class="person-name">Ana Leonor D. J. Matic, RN</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="staff-nurse14.png" alt="" class="person-photo" />
+              <div class="role-tag">Staff Nurse</div>
+              <div class="person-name">Mark Anthony T. Caligula, RN</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="staff-nurse15.png" alt="" class="person-photo" />
+              <div class="role-tag">Staff Nurse</div>
+              <div class="person-name">Rolando Jr. S. Flores, RN</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="staff-nurse16.png" alt="" class="person-photo" />
+              <div class="role-tag">Staff Nurse</div>
+              <div class="person-name">Lourdes B. Gacusan, RN</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="staff-nurse17.png" alt="" class="person-photo" />
+              <div class="role-tag">Staff Nurse</div>
+              <div class="person-name">Romeo Jr. A. Cabral, RN</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="staff-nurse18.png" alt="" class="person-photo" />
+              <div class="role-tag">Staff Nurse</div>
+              <div class="person-name">Verliza Elleane E. Silvestre, RN</div>
+            </div>
+          </div>
+
+          <div class="section-head">Nursing Attendants</div>
+          <div class="staff-grid">
+            <div class="person-card staff-card">
+              <img src="attendant1.png" alt="" class="person-photo" />
+              <div class="role-tag">Nursing Attendant</div>
+              <div class="person-name">Beatriz V. Perez, RM</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="attendant2.png" alt="" class="person-photo" />
+              <div class="role-tag">Nursing Attendant</div>
+              <div class="person-name">Lourdes B. Duque</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="attendant3.png" alt="" class="person-photo" />
+              <div class="role-tag">Nursing Attendant</div>
+              <div class="person-name">Angeline P. Estrella</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="attendant4.png" alt="" class="person-photo" />
+              <div class="role-tag">Nursing Attendant</div>
+              <div class="person-name">Rizza Mae B. Rufino</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="attendant5.png" alt="" class="person-photo" />
+              <div class="role-tag">Nursing Attendant</div>
+              <div class="person-name">Maileen B. Roman</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="department-box reveal">
+          <div class="department-title">
+            <h2>Administrative Services</h2>
+          </div>
+
+          <div class="section-head">Administrative Head</div>
+          <div class="staff-grid single-col">
+            <div class="person-card staff-card">
+              <img src="admin-officer.png" alt="" class="person-photo" />
+              <div class="role-tag">Administrative Officer</div>
+              <div class="person-name">Jandrei Evan D. Lim, MD</div>
+            </div>
+          </div>
+
+          <div class="section-head">Office and Finance Staff</div>
+          <div class="staff-grid">
+            <div class="person-card staff-card">
+              <img src="accountant.png" alt="" class="person-photo" />
+              <div class="role-tag">Accountant</div>
+              <div class="person-name">Mary Nel G. Bucang, CPA</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="billing-officer.png" alt="" class="person-photo" />
+              <div class="role-tag">Billing Officer</div>
+              <div class="person-name">Mary Kate I. Arogar</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="budget-officer.png" alt="" class="person-photo" />
+              <div class="role-tag">Budget Officer</div>
+              <div class="person-name">Jantrice Marina L. Gopez</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="cashier1.png" alt="" class="person-photo" />
+              <div class="role-tag">Cashier 1</div>
+              <div class="person-name">Ma. Allyza Lei R. Tana</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="cashier2.png" alt="" class="person-photo" />
+              <div class="role-tag">Cashier 2</div>
+              <div class="person-name">Normita S. Dimayuga</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="hr.png" alt="" class="person-photo" />
+              <div class="role-tag">HR Management Officer</div>
+              <div class="person-name">Feih B. Fabro</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="bookkeeper.png" alt="" class="person-photo" />
+              <div class="role-tag">Book Keeper</div>
+              <div class="person-name">Mary Kate I. Arogar</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="supply.png" alt="" class="person-photo" />
+              <div class="role-tag">Supply Officer</div>
+              <div class="person-name">Carlo Luis P. Gopez</div>
+            </div>
+          </div>
+
+          <div class="section-head">Support and Other Staff</div>
+          <div class="staff-grid">
+            <div class="person-card staff-card">
+              <img src="medical-records.png" alt="" class="person-photo" />
+              <div class="role-tag">Medical Records Officer</div>
+              <div class="person-name">Jaime Q. Lim</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="social-worker.png" alt="" class="person-photo" />
+              <div class="role-tag">Medical Social Worker</div>
+              <div class="person-name">Renee Faye A. Simon, RSW</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="nutritionist.png" alt="" class="person-photo" />
+              <div class="role-tag">Nutritionist-Dietician</div>
+              <div class="person-name">Gina T. Meca, RND</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="utility1.png" alt="" class="person-photo" />
+              <div class="role-tag">Utility Worker</div>
+              <div class="person-name">Arnel A. Gelison</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="utility2.png" alt="" class="person-photo" />
+              <div class="role-tag">Utility Worker</div>
+              <div class="person-name">Jesson M. Macula</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="utility3.png" alt="" class="person-photo" />
+              <div class="role-tag">Utility Worker</div>
+              <div class="person-name">Candido A. Nicdao</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="utility4.png" alt="" class="person-photo" />
+              <div class="role-tag">Utility Worker</div>
+              <div class="person-name">Joel R. Sabanag</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="utility5.png" alt="" class="person-photo" />
+              <div class="role-tag">Utility Worker</div>
+              <div class="person-name">Reynaldo P. Beleganio</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="security1.png" alt="" class="person-photo" />
+              <div class="role-tag">Security Guard</div>
+              <div class="person-name">Mary Ann G. Victoria</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="security2.png" alt="" class="person-photo" />
+              <div class="role-tag">Security Guard</div>
+              <div class="person-name">Rex Jr. N. Dumon</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="security3.png" alt="" class="person-photo" />
+              <div class="role-tag">Security Guard</div>
+              <div class="person-name">Edgar D. L. Bernardino</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="laundry1.png" alt="" class="person-photo" />
+              <div class="role-tag">Laundry Worker</div>
+              <div class="person-name">Maximo B. Juantiez Jr.</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="ambulance1.png" alt="" class="person-photo" />
+              <div class="role-tag">Ambulance Driver</div>
+              <div class="person-name">Juan R. Ramirez</div>
+            </div>
+
+            <div class="person-card staff-card">
+              <img src="ambulance2.png" alt="" class="person-photo" />
+              <div class="role-tag">Ambulance Driver</div>
+              <div class="person-name">Edilberto R. Dimayuga</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div class="footer-logo-wrap">
+              <div class="footer-logo"><i class="bi bi-hospital-fill"></i></div>
+              <div>
+                <h5 class="mb-1">E.D. Lim Medical Center</h5>
+                <small>Compassionate and reliable healthcare</small>
+              </div>
+            </div>
+            <p>
+              E.D. Lim Medical Center is committed to providing compassionate,
+              reliable, and quality healthcare services for individuals and
+              families. With dedicated professionals and patient-centered care,
+              we promote healing, health, and well-being in the community.
+            </p>
+          </div>
+
+          <div class="col-6 col-lg-2">
+            <h5>Navigate</h5>
+            <ul class="footer-links">
+              <li><a href="index.html#home">Home</a></li>
+              <li><a href="index.html#services">Services</a></li>
+              <li><a href="index.html#about">About Us</a></li>
+              <li><a href="organization.html">Organization</a></li>
+              <li><a href="index.html#facilities">Facilities</a></li>
+              <li><a href="index.html#faqs">FAQs</a></li>
+            </ul>
+          </div>
+
+          <div class="col-6 col-lg-3">
+            <h5>Contacts</h5>
+            <ul class="footer-contact">
+              <li>
+                <i class="bi bi-geo-alt-fill me-2"></i> Mac Arthur Highway, San
+                Vicente, Apalit, Pampanga
+              </li>
+              <li><i class="bi bi-telephone-fill me-2"></i>0943-344-2587</li>
+              <li>
+                <i class="bi bi-envelope-fill me-2"></i>
+                edlim.hospital@yahoo.com
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3">
+            <h5>Socials</h5>
+            <ul class="footer-social">
+              <li>
+                <a
+                  class="social-link"
+                  href="https://www.facebook.com/LimMedicalCenter"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="bi bi-facebook"></i> E.D Lim Medical Center
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          © 2026 EDLIM Medical Center. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const reveals = document.querySelectorAll(".reveal");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+              }
+            });
+          },
+          { threshold: 0.15 },
+        );
+
+        reveals.forEach((item, index) => {
+          item.style.transitionDelay = `${index * 0.08}s`;
+          observer.observe(item);
+        });
+      });
+    </script>
+  </body>
+</html>
