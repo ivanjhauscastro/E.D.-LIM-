@@ -2249,19 +2249,51 @@
       }
 
       /*DOCTORA NAME*/
-      .home-doctor-side {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-      }
+     .home-doctor-side {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 560px;
+}
 
-      .doctor-image {
-        position: relative;
-        z-index: 2;
-        display: block;
-        margin: 0 auto;
-      }
+.home-doctor-glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  left: 50%;
+  bottom: 40px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(77, 136, 192, 0.22) 0%,
+    rgba(120, 170, 90, 0.16) 38%,
+    rgba(255, 255, 255, 0) 75%
+  );
+  filter: blur(12px);
+  z-index: 0;
+}
+
+.doctor-building-bg {
+  position: absolute;
+  left: 50%;
+  bottom: 25px;
+  transform: translateX(-50%);
+  width: min(100%, 430px);
+  opacity: 0.32;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.doctor-image {
+  position: relative;
+  z-index: 2;
+  display: block;
+  margin: 0 auto;
+  max-height: 540px;
+  object-fit: contain;
+}
 
       .doctor-name-card {
         position: absolute;
